@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_DB: ProjectF
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: kokomap77
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: django
+    command: gunicorn cloud_task_manager.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - .:/app/project-root
+    working_dir: /app/project-root
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    environment:
+      - DEBUG=1
+      - DJANGO_SECRET_KEY=django-insecure-c)+r5yxe*-k50m9+h#%5vtde3ilzapxxlptuo@npzh6+xv1a&+
+      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1
+      - DATABASE_URL=postgres://postgres:kokomap77@postgres:5432/ProjectF
+
+  react:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: react
+    ports:
+      - "3000:80"
+    depends_on:
+      - django
+
+volumes:
+  postgres_data:
