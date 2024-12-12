@@ -12,13 +12,13 @@
 8. **Cloud Infrastructure:** Azure provides the environment for hosting and running the application, including virtual machines and Kubernetes services.
 
 #### **Phase 1: Planning and Requirement Gathering**
-1. **[[Project Requirements|Define Objectives and Scope]]**
+1. **Define Objectives and Scope**
    - Clearly outline the project goals
    - Identify and document the key features and functionalities required.
    - Determine the scope of the project, including both essential and optional features.
 
 2. **Technology Stack Selection**
-   - Backend: Django for core features, FastAPI for microservices.
+   - Backend: Django for core features.
    - Frontend: HTML, CSS, JavaScript.
    - Database: PostgreSQL.
    - Containerization: Docker and Kubernetes.
@@ -26,7 +26,7 @@
    - Deployment: Microsoft Azure.
 
 3. **Project Timeline and Milestones**
-   - Break down the project into phases with clear milestones (e.g., backend completion, frontend integration, API development, containerization, deployment).
+   - Break down the project into phases with clear milestones
    - Set deadlines for each milestone to keep the project on track.
 
 #### **Phase 2: System Design**
@@ -51,12 +51,9 @@
 
 #### **Phase 3: Implementation**
 1. **Backend Development**
-   - **[[Django Core]]:**
+   - **Django Core:**
      - Implement authentication, user roles, task creation, and management features.
      - Integrate with PostgreSQL, creating the database and setting up models.
-   - **FastAPI Microservices:**
-     - Develop microservices for notifications, analytics, or other performance-critical tasks.
-     - Ensure asynchronous processing for real-time features.
 
 2. **Frontend Development**
    - Design a responsive UI using HTML, CSS, and JavaScript.
